@@ -135,3 +135,41 @@ section{
     width: 35%;
 }
 
+@media (max-width: 1000px) {
+    h1{
+        font-size: 3rem;
+    }
+
+    h3{
+        font-size: 2rem;
+    }
+
+    .hero{
+        z-index: 2;
+    }
+
+    .heroHeader, .heroCopy{
+        padding: 2rem;
+    }
+
+    .heroHeader h1, .heroCopy h3{
+        width: 100%;
+    }
+
+    .aboutHeader, .outro h3{
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .aboutImgs-col .img{
+        width: 75px;
+        height: 75px;
+        opacity: 0.25;
+        filter: saturate(0);
+    }
+
+    #aboutImgs-col-2, #aboutImgs-col-3{
+        transform: translateX(0px) translateY(500px);
+    }
+}
+
