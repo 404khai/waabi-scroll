@@ -52,7 +52,39 @@ document.addEventListener('DOMContentLoaded', () => {
                 gsap.set(word, {opacity: wordOpacity});
             });
             
-        }
-    })
+            if(progress > 0.64 && !isHeroCopyHidden) {
+                isHeroCopyHidden = true;
+                gsap.to(".heroCopy h3", { opacity: 0, duration: 0.2});
+            } else if (progress <= 0.64 && isHeroCopyHidden){
+                isHeroCopyHidden = false;
+                gsap.to(".heroCopy h3", { opacity: 1, duration: 0.2});
+            }
+
+            const heroImgProgress = Math.max(
+                0,
+                Math.min((progress - 0.71) / 0.29, 1),
+            );
+            const heroImgWidth = gsap.utils.interpolate(
+                window.innerWidth,
+                150,
+                heroImgProgress,
+            );
+            const heroImgHeight = gsap.utils.interpolate(
+                window.innerHeight,
+                150,
+                heroImgProgress,
+            );
+            const heroImgBorderRadius = gsap.utils.interpolate(
+                0,
+                10,
+                heroImgProgress,
+            );
+            gsap.set(".heroImg", {
+                width: heroImgWidth,
+                height: heroImgHeight,
+                borderRadius: heroImgBorderRadius,
+            });
+        },
+    });
 
 });
